@@ -1,6 +1,7 @@
 <?php
 define( 'DB_NAME',     'wordpress' );
 define( 'DB_USER',     'wordpress' );
+define( 'DB_PASSWORD', 'wordopresso' );
 define( 'DB_HOST',     'mariadb' );
 define( 'DB_CHARSET',  'utf8mb4' );
 $table_prefix = 'wp_';
@@ -15,4 +16,3 @@ define('NONCE_SALT',       'V>F[m`Z70<2CzNAdlvdQXRul~vE#2H3>8IupH#AD]ovY55x7|yrT
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 require_once(ABSPATH . 'wp-settings.php');
-define( 'DB_PASSWORD', 'wordopresso' );
