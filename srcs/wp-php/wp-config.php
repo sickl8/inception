@@ -1,7 +1,7 @@
 <?php
 define( 'DB_NAME',     'wordpress' );
 define( 'DB_USER',     'wordpress' );
-define( 'DB_PASSWORD', 'wordopresso' );
+define( 'DB_PASSWORD', 'WORDPRESS_PASSWORD' );
 define( 'DB_HOST',     'mariadb' );
 define( 'DB_CHARSET',  'utf8mb4' );
 $table_prefix = 'wp_';

@@ -9,11 +9,13 @@ RUN apt install php-fpm php -y
 COPY conf /etc/php/7.3/fpm/pool.d/www.conf
 RUN service php7.3-fpm start
 
+RUN apt install mariadb-client -y
+RUN apt install php-mysql -y
+
 COPY entry.sh /entry.sh
 
 COPY wp-config.php /wp-config.php
 
-RUN apt install mariadb-client -y
-RUN apt install php-mysql -y
+COPY gen_php.sh /gen_php.sh
 
 CMD [ "sh", "/entry.sh" ]

@@ -1,3 +1,1 @@
-echo "define( 'DB_PASSWORD', '$PASSWDDB' );" >> /wp-config.sh
-echo "define( 'DB_NAME',     '$MAINDB' );" >> /wp-config.sh
-echo "define( 'DB_USER',     '$MAINDB' );" >> /wp-config.sh
+cat /wp-config.php | sed 's/WORDPRESS_PASSWORD/'"$PASSWDDB"'/g' > /var/www/html/wp-config.php
