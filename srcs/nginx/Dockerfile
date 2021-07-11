@@ -9,6 +9,7 @@ COPY cert.key /etc/nginx/certs/cert.key
 COPY index.html /var/www/html/index.html
 COPY index.php /var/www/html/index.php
 COPY nginx.conf /etc/nginx/sites-available/default
+RUN apt install mariadb-client -y
 
 CMD [ "nginx", "-g", "daemon off;"]
 # CMD [ "tail", "-f" ]
