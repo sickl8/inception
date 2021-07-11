@@ -7,6 +7,8 @@ services:
       - "443:443"
     volumes:
       - /home/${LOGIN}/data/wp-files:/var/www/html
+    restart_policy:
+      condition: on-failure
   wp-php:
     build: ./wp-php
     image: wp-php
@@ -17,6 +19,8 @@ services:
     environment:
       - MAINDB=${MAINDB}
       - PASSWDDB=${PASSWDDB}
+    restart_policy:
+      condition: on-failure
   mariadb:
     build: ./mariadb
     image: mariadb
@@ -29,3 +33,5 @@ services:
       - MYSQL_NEW_ROOT_PASSWORD=${MYSQL_NEW_ROOT_PASSWORD}
       - MAINDB=${MAINDB}
       - PASSWDDB=${PASSWDDB}
+    restart_policy:
+      condition: on-failure
