@@ -30,3 +30,14 @@ services:
     restart: on-failure
 networks:
   default:
+volumes:
+  wp-db:
+    driver_opts:
+      type: none
+      device: /home/${LOGIN}/data/wp-db
+      o: bind
+  wp-files:
+    driver_opts:
+      type: none
+      device: /home/${LOGIN}/data/wp-files
+      o: bind
