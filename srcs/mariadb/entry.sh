@@ -14,12 +14,12 @@ if [ ! "$(ls -A /var/lib/mysql)" ]; then
 	mysql -uroot -p${MYSQL_NEW_ROOT_PASSWORD} -e "GRANT ALL PRIVILEGES ON ${MAINDB}.* TO '${MAINDB}'@'localhost';"
 	mysql -uroot -p${MYSQL_NEW_ROOT_PASSWORD} -e "GRANT ALL PRIVILEGES ON ${MAINDB}.* TO '${MAINDB}'@'%';"
 	mysql -uroot -p${MYSQL_NEW_ROOT_PASSWORD} -e "FLUSH PRIVILEGES;"
-	mysql -uwordpress -p${PASSWDDB} wordpress < wp_db.sql
+	mysql -u${MAINDB} -p${PASSWDDB} ${MAINDB} < wp_db.sql
 	killall -9 mysqld mysqld_safe
 	cd '/usr' ; /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
 else
 	#service mysql start
 	#sleep 3
 	killall -9 mysqld mysqld_safe 2>/dev/null
-        cd '/usr' ; /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
+	cd '/usr' ; /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
 fi

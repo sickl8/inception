@@ -9,7 +9,6 @@ RUN ufw allow 3306
 RUN apt install procps -y
 COPY script.exp /script.exp
 COPY entry.sh /entry.sh
-COPY answer.sh /answer.sh
 COPY 50s.cnf /50s.cnf
 COPY wp_db.sql /wp_db.sql
 
