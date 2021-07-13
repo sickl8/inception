@@ -3,6 +3,7 @@ services:
   nginx:
     build: ./nginx
     image: nginx
+    container_name: nginx
     ports:
       - "443:443"
     volumes:
@@ -11,6 +12,7 @@ services:
   wp-php:
     build: ./wp-php
     image: wp-php
+    container_name: wp-php
     volumes:
       - /home/${LOGIN}/data/wp-files:/var/www/html
     environment:
@@ -20,6 +22,7 @@ services:
   mariadb:
     build: ./mariadb
     image: mariadb
+    container_name: mariadb
     volumes:
       - /home/${LOGIN}/data/wp-db:/var/lib/mysql
     environment:
