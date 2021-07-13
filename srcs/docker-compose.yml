@@ -7,14 +7,14 @@ services:
     ports:
       - "443:443"
     volumes:
-      - /home/${LOGIN}/data/wp-files:/var/www/html
+      - wp-files:/var/www/html
     restart: on-failure
   wp-php:
     build: ./wp-php
     image: wp-php
     container_name: wp-php
     volumes:
-      - /home/${LOGIN}/data/wp-files:/var/www/html
+      - wp-files:/var/www/html
     environment:
       - MAINDB=${MAINDB}
       - PASSWDDB=${PASSWDDB}
@@ -24,7 +24,7 @@ services:
     image: mariadb
     container_name: mariadb
     volumes:
-      - /home/${LOGIN}/data/wp-db:/var/lib/mysql
+      - wp-db:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_NEW_ROOT_PASSWORD=${MYSQL_NEW_ROOT_PASSWORD}
